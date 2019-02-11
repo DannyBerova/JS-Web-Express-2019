@@ -1,0 +1,12 @@
+{
+    "name": "02-movie-db-server",
+    "version": "1.0.0",
+    "description": "Exercise: Web Server and Development Tools",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "keywords": [],
+    "author": "AS",
+    "license": "ISC"
+}

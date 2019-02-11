@@ -1,0 +1,25 @@
+<h1>Welcome to Messenger</h1>
+
+{{#if currentUser}}
+<form action="/threads/find" method="post" class="form center-form">
+  <div class="form-group">
+    <input name="username" placeholder="username" class="input-field search" />
+    <button class="btn btn-search">Search</button>
+  </div>
+</form>
+{{/if}}
+
+{{#if isAdmin}}
+<h1>Threads</h1>
+<div class="threads-list">
+  {{#each threads}}
+  <div class="thread">
+    <form action="/threads/remove/{{_id}}" method="POST">
+      <h4>{{users.[0].username}} / {{users.[1].username}}</h4>
+      <p>{{dateCreated}}</p>
+      <button class="btn">Delete</button>
+    </form>
+  </div>
+  {{/each}}
+</div>
+{{/if}}

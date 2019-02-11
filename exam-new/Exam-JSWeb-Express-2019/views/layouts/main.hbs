@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projects Manager</title>
+    <link href="./static/css/site.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {{#if user}}
+                <li><a href="/project/all">Projects</a></li>
+                <li><a href="/team/all">Teams</a></li>
+                {{/if}}
+                {{#if isAdmin}}
+                <li><a href="/team/create">Create Team</a></li>
+                <li><a href="/project/create">Create Project</a></li>
+                
+                {{/if}}
+                {{#if user}}
+                <div class="right">
+                    <li>Welcome, {{user.username}}!</li>
+                    <li><a href="/user/profile">Profile</a></li>
+                    <li>
+                        <form id="logout-form" action="/user/logout" method="post"></form>
+                        <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+                        {{else}}
+                        <div class="right">
+                    <li><a href="/user/login">Login</a></li>
+                    <li><a href="/user/register">Register</a></li>
+                </div>
+                {{/if}}
+                </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{!-- {{#each globalErrors}}
+        <span class="error">{{this}}</span>
+        {{/each}}
+
+        {{#if success}}
+        <div id="successBox">
+            <h2>{{success}}</h2>
+        </div>
+        {{/if}}
+
+        {{#if error}}
+        <div id="errorBox">
+            <h2>{{error}}</h2>
+        </div>
+        {{/if}} --}}
+        {{#if error}}
+        <div id="error">
+            <h3 class="error">{{error}}</h3>
+        </div>
+        {{/if}}
+
+        {{#if flash.message}}
+        <div id="error">
+            <h3 class="message">{{flash.message}}</h3>
+        </div>
+        {{/if}}
+        {{#if flash.info}}
+        <h3 class="message">{{flash.info}}</h3>
+        {{/if}}
+        <ul>
+            {{#each flash.error}}
+            <li class="error">
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
+        {{{body}}}
+    </main>
+
+    <footer>
+        Express Exam @SoftUni
+    </footer>
+</body>
+
+</html>

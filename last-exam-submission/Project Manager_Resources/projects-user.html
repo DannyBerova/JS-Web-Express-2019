@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projects Manager</title>
+    <link href="./static/css/site.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Teams</a></li>
+            <div class="right">
+                <li>Welcome, pesho!</li>
+                <li><a href="#">Profile</a></li>
+                <li>
+                    <form id="logout-form" action="/logout" method="post"></form>
+                    <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+                </li>
+            </div>
+        </ul>
+    </header>
+    <main>
+ <h1>Projects</h1>
+<form class="search" >
+  <label>Seach: </label>
+  <input type="text">
+  <input type="submit" value="Search">
+</form>
+<div class="projects">
+  <div class="project">
+    <h2>Interactive</h2>
+    <h3>Team: No Team assigned</h3>
+    <p>Description: Interactive platform for SoftUni</p>
+  </div>
+  <div class="project">
+    <h2>Blood Donnorship</h2>
+    <h3>Team: Students</h3>
+    <p>Description: Create blood donnorship application</p>
+  </div>
+</div>
+
+    </main>
+    <footer>
+        Express Exam @SoftUni
+    </footer>
+</body>
+
+</html>

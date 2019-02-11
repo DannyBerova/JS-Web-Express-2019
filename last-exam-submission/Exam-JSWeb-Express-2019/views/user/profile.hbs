@@ -1,0 +1,26 @@
+<h1>My Profile</h1>
+<div class="profile-box">
+  <img src="{{imageUrl}}">
+  <div class="profile">
+    <div class="info">
+      <h3>My Teams</h3>
+      {{#each this.teams}}
+      <form action="/user/profile" method="POST">
+        <div>
+          <h3>{{this.name}}</h3>
+        </div>
+        <input type="hidden" id="id" name="id" value="{{this._id}}" />
+        <input type="submit" value="Leave Team"><br>
+      </form>
+      {{/each}}
+    </div>/<br>
+    <div class="more-info">
+      <h3>My Projects</h3>
+      {{#each this.teams}}
+      {{#each this.projects}}
+      <p>{{name}}</p>
+      {{/each}}
+      {{/each}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projects Manager</title>
+    <link href="./static/css/site.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Teams</a></li>
+            <li><a href="#">Create Team</a></li>
+            <li><a href="#">Create Project</a></li>
+            <div class="right">
+                <li>Welcome, Admin!</li>
+                <li><a href="#">Profile</a></li>
+                <li>
+                    <form id="logout-form" action="/logout" method="post"></form>
+                    <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+                </li>
+            </div>
+        </ul>
+    </header>
+    <main>
+ <h1>Teams</h1>
+<h3>Manage Users</h3>
+<div class="form">
+  <form>
+    <label>User</label>
+    <select>
+      <option value="5c4aef562743f40294456ec0">Admin</option>
+      <option value="5c4af16ece0c0b31d4ee7039">H&amp;M</option>
+      <option value="5c4af2b4ce0c0b31d4ee703c">tanya</option>
+      <option value="5c4af2cdce0c0b31d4ee703d">gosho</option>
+      <option value="5c4af2e5ce0c0b31d4ee703e">pesho</option>
+    </select>
+    <label>Team</label>
+    <select>
+      <option value="5c4af1a9ce0c0b31d4ee703b">Developers</option>
+      <option value="5c4af4f1ce0c0b31d4ee7040">Students</option>
+      <option value="5c4ed20e58d65f25640536e5">Strawberries</option>
+    </select>
+    <input type="submit" value="Distribute">
+  </form>
+</div>
+
+    </main>
+    <footer>
+        Express Exam @SoftUni
+    </footer>
+</body>
+
+</html>

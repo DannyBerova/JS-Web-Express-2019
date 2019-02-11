@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projects Manager</title>
+    <link href="./static/css/site.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Teams</a></li>
+            <div class="right">
+                <li>Welcome, pesho!</li>
+                <li><a href="#">Profile</a></li>
+                <li>
+                    <form id="logout-form" action="/logout" method="post"></form>
+                    <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+                </li>
+            </div>
+        </ul>
+    </header>
+    <main>
+ <h1>My Profile</h1>
+<div class="profile-box">
+  <img src="https://themes.gohugo.io//theme/hugo-geo//img/profile.png">
+  <div class="profile">
+    <div class="info">
+      <h3>My Teams</h3>
+      <form>
+        <p>Developers</p>
+        <input type="submit" value="Leave Team">
+      </form>
+    </div>
+    <div class="more-info">
+      <h3>My Projects</h3>
+      <p>You have no projects!</p>
+    </div>
+  </div>
+</div>
+    </main>
+    <footer>
+        Express Exam @SoftUni
+    </footer>
+</body>
+
+</html>

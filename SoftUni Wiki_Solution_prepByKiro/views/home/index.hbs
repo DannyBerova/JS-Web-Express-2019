@@ -1,0 +1,22 @@
+<section id="featured">
+  <h2>Latest article</h2>
+  <article>
+    <h3>{{title}}</h3>
+    <p>
+      {{content}}&hellip;
+    </p>
+    <div class="controls">
+      <a href="/article/details/{{_id}}">Read more</a>
+    </div>
+  </article>
+</section>
+<section id="recent">
+  <h2>Recently added articles</h2>
+  <ul>
+    {{#each latest}}
+    <li>
+      <a href="/article/details/{{this._id}}">{{this.title}}</a>
+    </li>
+    {{/each}}
+  </ul>
+</section>

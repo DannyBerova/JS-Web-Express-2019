@@ -1,0 +1,9 @@
+{{!-- if email instead username, change it --}}
+
+<form id="login-form" action="/user/login" method="POST">
+    <label for="username">Username:</label>
+    <input required class="input-field" type="text" id="username" name="username" value="{{username}}" />
+    <label for="password">Password:</label>
+    <input required class="input-field" type="password" id="password" name="password" value="{{password}}"/>
+    <input class="submit-btn" type="submit" value="Login" />
+</form>

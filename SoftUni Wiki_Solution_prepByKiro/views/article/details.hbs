@@ -1,0 +1,25 @@
+<div class="spacer">
+  <h2>{{title}}
+    <div class="controls">
+      {{#if currentUser}}
+      <a href="/article/edit/{{_id}}">[edit]</a>
+      <a href="/article/history/{{_id}}">[history]</a>
+        {{#if isAdmin}}
+          {{#if isLockedArt}}
+          <a href="/article/unlock/{{_id}}">[unlock]</a>
+          {{else}}
+          <a href="/article/lock/{{_id}}">[lock]</a>
+          {{/if}}
+          {{!-- {{#unless isLockedArt}}
+          <a href="/article/lock/{{_id}}">[lock]</a>
+          {{/unless}} --}}
+        {{/if}}
+      {{/if}}
+    </div>
+  </h2>
+  <article>
+    {{#each splitedContent}}
+    <p>{{this}}</p>
+    {{/each}}
+  </article>
+</div>

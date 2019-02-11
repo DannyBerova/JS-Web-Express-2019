@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wiki</title>
+    <link rel="stylesheet" href="/css/site.css">
+    <link href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div>
+        <aside>
+            <div class="center">
+                <img class="logo" src="/img/logo.png" alt="logo">
+            </div>
+
+            <nav>
+                <a href="/">Main Page</a>
+                <a href="/article/latest">Latest Article</a>
+                <a href="/article/all">All Articles</a>
+                <form action="/search" method="GET">
+                    <input type="text" name="query">
+                    <input type="submit" value="Search">
+                </form>
+                {{#if currentUser}}
+                <a href="/article/create">Create New Article</a>
+                {{/if}}
+            </nav>
+        </aside>
+        <div id="container">
+            <header>
+                {{#if currentUser}}
+                <span>Welcome, {{email}}!</span>
+                <a href="/logout">[Logout]</a>
+                {{else}}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+                {{/if}}
+            </header>
+            <main>
+                <h1>Welcome to SoftUni Wiki!</h1>
+                {{#if error}}
+                <div id="error">
+                    <h3 class="error">{{error}}</h3>
+                </div>
+                {{/if}}
+
+                {{#if flash.message}}
+                <div id="error">
+                    <h3 class="message">{{flash.message}}</h3>
+                </div>
+                {{/if}}
+                {{#if flash.info}}
+                <h3 class="message">{{flash.info}}</h3>
+                {{/if}}
+                <ul>
+                    {{#each flash.error}}
+                    <li class="error">
+                        {{this}}
+                    </li>
+                    {{/each}}
+                </ul>
+                {{#if globalError}}
+                <span>{{globalError}}</span>
+                {{/if}}
+                {{{body}}}
+            </main>
+            <footer>
+                SoftUni Wiki &copy; 2018
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

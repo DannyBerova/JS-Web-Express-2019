@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Messanger</title>
+    <link href="/css/site.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="nav">
+        <ul class="menu">
+            <li>
+                <a href="/">Home</a>
+            </li>
+            {{#if currentUser}}
+
+            <li class="right">
+                <form id="logout-form" action="/users/logout" method="POST">
+                    <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+                </form>
+            </li>
+            <li class="right">Welcome, {{currentUser.username}}!</li>
+            {{else}}
+            <li class="right">
+                <a href="/users/register">Register</a>
+            </li>
+            <li class="right">
+                <a href="/users/login">Login</a>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+    <main>
+
+        {{#if error}}
+        <div id="error">
+            <h3 class="error">{{error}}</h3>
+        </div>
+        {{/if}}
+
+        {{#if flash.message}}
+        <div id="error">
+            <h3 class="message">{{flash.message}}</h3>
+        </div>
+        {{/if}}
+        {{!-- <ul>
+            {{#each flash.message}}
+            <li class="message">
+                {{this}}
+            </li>
+            {{/each}}
+        </ul> --}}
+        <ul>
+            {{#each flash.error}}
+            <li class="error">
+                {{this}}
+            </li>
+            {{/each}}
+        </ul>
+
+        <div>{{{body}}}</div>
+    </main>
+</body>
+
+</html>

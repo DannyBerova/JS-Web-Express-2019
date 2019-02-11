@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projects Manager</title>
+    <link href="./static/css/site.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Teams</a></li>
+            <div class="right">
+                <li>Welcome, pesho!</li>
+                <li><a href="#">Profile</a></li>
+                <li>
+                    <form id="logout-form" action="/logout" method="post"></form>
+                    <a href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+                </li>
+            </div>
+        </ul>
+    </header>
+    <main>
+ <h1>Teams</h1>
+<form class="search">
+  <label>Seach: </label>
+  <input type="text">
+  <input type="submit" value="Search">
+</form>
+<div class="teams">
+  <div class="team">
+    <h2>Developers</h2>
+    <div class="team-info">
+      <h3>Members</h3>
+      <p>Hristomir Asenov</p>
+      <p>Pesho Peshev</p>
+    </div>
+    <div class="team-info">
+      <h3>Projects</h3>
+      <p>Team has no projects</p>
+    </div>
+  </div>
+  <div class="team">
+    <h2>Students</h2>
+    <div class="team-info">
+      <h3>Members</h3>
+      <p>Tanya Staneva</p>
+      <p>Gosho Goshev</p>
+    </div>
+    <div class="team-info">
+      <h3>Projects</h3>
+      <p>Blood Donnorship</p>
+    </div>
+  </div>
+  <div class="team">
+    <h2>Strawberries</h2>
+    <div class="team-info">
+      <h3>Members</h3>
+      <p>Team has no members</p>
+    </div>
+    <div class="team-info">
+      <h3>Projects</h3>
+      <p>Team has no projects</p>
+    </div>
+  </div>
+</div>
+
+    </main>
+    <footer>
+        Express Exam @SoftUni
+    </footer>
+</body>
+
+</html>
