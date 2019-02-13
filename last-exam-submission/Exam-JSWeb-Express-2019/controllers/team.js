@@ -64,23 +64,28 @@ module.exports = {
     },
     assignPost: async (req, res) => {
         try {
-            let teamName = req.body.teamName;
-            let userName = req.body.userName;
-            let team = await Team.findById(teamName);
-            let user = await User.findById(userName);
-            for (const userA of team.members) {
-                if (userA.toString() === user._id.toString()) {
-                    req.flash('User already in team');
-                    res.redirect('/team/assign');
-                    return;
+            if (req.body.teamName && req.body.userName) {
+                let teamName = req.body.teamName;
+                let userName = req.body.userName;
+                let team = await Team.findById(teamName);
+                let user = await User.findById(userName);
+                for (const userA of team.members) {
+                    if (userA.toString() === user._id.toString()) {
+                        req.flash('User already in team');
+                        res.redirect('/team/assign');
+                        return;
+                    }
                 }
+                team.members.push(user._id);
+                user.teams.push(team._id);
+                await user.save();
+                await team.save();
+                req.flash(`${user.username} assigned to team ${team.name}`)
+                res.redirect('/');
+            } else {
+                req.flash('You need both team and user');
+                res.redirect('/team/assign');
             }
-            team.members.push(user._id);
-            user.teams.push(team._id);
-            await user.save();
-            await team.save();
-            req.flash(`${user.username} assigned to team ${team.name}`)
-            res.redirect('/');
         } catch (err) {
             console.log(err);
             res.redirect('/');

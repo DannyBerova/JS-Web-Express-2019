@@ -40,42 +40,7 @@ module.exports = {
         }
 
     },
-    assignGet: async (req, res) => {
-        try {
-            if (req.user) {
-                let teams = await Team.find({});
-                let projects = await Project.find({
-                    team: undefined
-                });
-                res.teams = teams;
-                res.projects = projects;
-                res.render('project/assign', {
-                    teams,
-                    projects
-                });
-            } else {
-                res.render('home/index');
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    },
-    assignPost: async (req, res) => {
-        try {
-            let teamName = req.body.teamName;
-            let projName = req.body.projName;
-            let team = await Team.findById(teamName);
-            let project = await Project.findById(projName);
 
-            project.team = team._id;
-            team.projects.push(project._id);
-            await project.save();
-            await team.save();
-            res.redirect('/');
-        } catch (err) {
-            console.log(err);
-        }
-    },
     all: async (req, res) => {
         let projects = await Project.find().populate('team');
         res.render('project/all', {
@@ -104,19 +69,25 @@ module.exports = {
     },
     assignPost: async (req, res) => {
         try {
+            console.log(req.body.teamName)
+            console.log(req.body.projName)
+            if (req.body.teamName && req.body.projName) {
+                let teamName = req.body.teamName;
+                let projName = req.body.projName;
+                let team = await Team.findById(teamName);
+                let project = await Project.findById(projName);
 
-            let teamName = req.body.teamName;
-            let projName = req.body.projName;
-            let team = await Team.findById(teamName);
-            let project = await Project.findById(projName);
+                project.team = team._id;
+                team.projects.push(project._id);
+                await project.save();
+                await team.save();
 
-            project.team = team._id;
-            team.projects.push(project._id);
-            await project.save();
-            await team.save();
-
-            req.flash(`Project ${projName.name} assigned to team ${team.teamName}`)
-            res.redirect('/');
+                req.flash(`Project ${projName.name} assigned to team ${team.teamName}`)
+                res.redirect('/');
+            } else {
+                req.flash('You need both team and project');
+                res.redirect('/project/assign');
+            }
         } catch (err) {
             console.log(err);
         }

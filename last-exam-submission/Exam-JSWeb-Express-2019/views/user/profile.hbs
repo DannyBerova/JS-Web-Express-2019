@@ -12,6 +12,8 @@
         <input type="hidden" id="id" name="id" value="{{this._id}}" />
         <input type="submit" value="Leave Team"><br>
       </form>
+      {{else}}
+      <p>You have no teams!</p>
       {{/each}}
     </div>/<br>
     <div class="more-info">
@@ -20,6 +22,8 @@
       {{#each this.projects}}
       <p>{{name}}</p>
       {{/each}}
+      {{else}}
+      <p>You have no projects!</p>
       {{/each}}
     </div>
   </div>

@@ -31,6 +31,14 @@ module.exports = {
             return;
         }
 
+        let user = await User.findOne({username: userBody.username});
+        console.log(user);
+        if(user) {
+            userBody.error = 'This username is taken!'
+            res.render('user/register', userBody);
+            return;
+        }
+
         const salt = encription.generateSalt();
         const hashedPass = encription.generateHashedPassword(salt, userBody.password);
 
