@@ -20,7 +20,7 @@
     "flashify": "^0.1.2",
     "handlebars": "^4.0.12",
     "handlebars-dateformat": "^1.1.1",
-    "mongoose": "5.4.1",
+    "mongoose": "5.7.5",
     "passport": "0.4.0",
     "passport-local": "1.0.0"
   },
